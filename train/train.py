@@ -16,8 +16,8 @@ from pretrain.data_preparation import OsuManiaDataset, make_collate_fn
 # Configuration / Defaults
 # ==========================================
 
-DATA_DIR = ["/mnt/p/dodosu/2024/","/mnt/p/dodosu/partof2023/"]  # Can be a list of directories
-MODEL_SAVE_DIR = "/mnt/code/elec/osu/model/"
+DATA_DIR = ["/path/to/data"]  # Can be a list of directories
+MODEL_SAVE_DIR = "/path/to/model/"
 KEYS = 4
 EPOCHS = 30
 BATCH_SIZE = 6  # Reduced for memory safety with attention layers
