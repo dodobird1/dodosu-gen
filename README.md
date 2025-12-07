@@ -24,6 +24,9 @@ A CNN/RNN-based generator with self-attention of osu!mania 4K beatmaps powered b
 git clone https://github.com/yourusername/dodosu-gen-mania.git
 cd dodosu-gen-mania
 
+# It is recommended to create a new python environment, e.g. using Anaconda
+conda create --name dodosu python==3.10
+
 # Install dependencies
 pip install torch torchaudio numpy tqdm x-transformers
 ```
@@ -31,6 +34,8 @@ pip install torch torchaudio numpy tqdm x-transformers
 ---
 
 ## Usage
+
+*Currently the installation, training, and inference processes are only tested on Ubuntu 24.04.*
 
 ### Training
 
@@ -87,7 +92,7 @@ dodosu-gen-mania/
 
 ## Roadmap
 
-- [x] Core model and training pipeline (current data: ranked 2020-24)
+- [x] Core model and training pipeline
 - [ ] Data augmentation (time stretching, cropping)
 - [ ] More data (waiting for 2025 to end)
 - [ ] Non-4K formats (5K, 7K, etc.)
