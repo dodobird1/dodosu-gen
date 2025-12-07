@@ -7,6 +7,7 @@ import numpy as np
 import zipfile
 from tqdm import tqdm
 
+CONFS = [0.7,0.8,0.9,0.97]
 # Add project root to sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -318,14 +319,14 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, default='model/best.pt', help="Path to trained model checkpoint (.pt)")
     parser.add_argument("--output", type=str, default="output.osu", help="Path to output .osu file")
     parser.add_argument("--keys", type=int, default=4, help="Key count (default: 4)")
-    parser.add_argument("--threshold", type=float, default=0.75, help="Threshold for note placement (default: 0.7)")
+    parser.add_argument("--threshold", type=float, default=CONFS[0], help=f"Threshold for note placement (default: {CONFS[0]})")
     parser.add_argument("--bpm", type=float, default=120.0, help="BPM of the song (default: 120.0)")
-    parser.add_argument("--max_conf", type=float, default=0.97, 
-                        help="Confidence threshold to allow 4 simultaneous notes (default: 0.95)")
-    parser.add_argument("--high_conf", type=float, default=0.90, 
-                        help="Confidence threshold to allow 3 simultaneous notes (default: 0.90)")
-    parser.add_argument("--mid_conf", type=float, default=0.80, 
-                        help="Confidence threshold to allow 2 simultaneous notes (default: 0.80)")
+    parser.add_argument("--max_conf", type=float, default=CONFS[3], 
+                        help=f"Confidence threshold to allow 4 simultaneous notes (default: {CONFS[3]})")
+    parser.add_argument("--high_conf", type=float, default=CONFS[2], 
+                        help=f"Confidence threshold to allow 3 simultaneous notes (default: {CONFS[2]})")
+    parser.add_argument("--mid_conf", type=float, default=CONFS[1], 
+                        help=f"Confidence threshold to allow 2 simultaneous notes (default: {CONFS[1]})")
     parser.add_argument("--shuffle", type=float, default=0.0, 
                         help="Probability of shuffling each note to a random unoccupied column (default: 0.0)")
     parser.add_argument("--cpu", action="store_true", help="Use CPU for inference")

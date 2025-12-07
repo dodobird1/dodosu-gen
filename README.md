@@ -1,6 +1,6 @@
 # dodosu-gen!mania v0.0.1
 
-A CNN/RNN-based generator of osu!mania 4K beatmaps powered by **RhythmNet** created by dodobird1. 
+A CNN/RNN-based generator with self-attention of osu!mania 4K beatmaps powered by **RhythmNet** created by dodobird1. 
 
 > ⚠️ **USE THIS MODEL RESPONSIBLY**  
 > Disclose any use of AI in the creation of beatmaps. The creator of this model is not responsible for any consequences caused by using this model, especially for plagiarism or any kind of violation of copyright.
@@ -87,14 +87,15 @@ dodosu-gen-mania/
 
 ## Roadmap
 
-- [x] Core model and training pipeline (current data: ranked 2024, part of? ranked 2023)
+- [x] Core model and training pipeline (current data: ranked 2020-24)
 - [ ] Data augmentation (time stretching, cropping)
-- [ ] More data and Loved maps
+- [ ] More data (waiting for 2025 to end)
 - [ ] Non-4K formats (5K, 7K, etc.)
 - [ ] GUI application
 - [ ] osu!taiko support
 - [ ] osu!standard support
 - [ ] osu!catch support
+- [ ] More powerful model when I have more computational power
 
 ---
 
@@ -103,7 +104,7 @@ dodosu-gen-mania/
 *No meaning implied by the order of listing.*
 
 - **osu!** — For keeping such a nice, warm, open-source community
-- **Salty Mermaid** — From the osu! community, who provided a list of all 2024 ranked and loved beatmaps which served as the training set
+- **Salty Mermaid** — From the osu! community, who provided a list of all 2024 ranked and loved beatmaps which served as the training set; they are also working on the 2025 set, which I am also hoping to use. 
 - **DiffRhythm & Tencent Music Entertainment (TME) Group** — For introducing me to Music+AI and all its possibilities
 - **Mr. Xinning Zhang** — For his excellent AI class!
 - **PerseverantDT** — For their JS-based parser of .osu files on GitHub

@@ -16,18 +16,19 @@ from pretrain.data_preparation import OsuManiaDataset, make_collate_fn
 # Configuration / Defaults
 # ==========================================
 
-DATA_DIR = ["/path/to/data"]  # Can be a list of directories
-MODEL_SAVE_DIR = "/path/to/model/"
+DATA_DIR = ["/mnt/p/dodosu/2024/","/mnt/p/dodosu/2023/","/mnt/p/dodosu/2022/","/mnt/p/dodosu/2021/","/mnt/p/dodosu/2020/","/mnt/p/dodosu/2015","/mnt/p/dodosu/2016","/mnt/p/dodosu/2017","/mnt/p/dodosu/2018","/mnt/p/dodosu/2019"]  # Can be a list of directories
+MODEL_SAVE_DIR = "/mnt/code/elec/osu/model/"
 KEYS = 4
 EPOCHS = 30
 BATCH_SIZE = 8  # Reduced for memory safety with attention layers
-MAX_FRAMES = 2560  # ~32 seconds max per sample (prevents OOM)
+MAX_FRAMES = 2560  # 3000 # ~32 seconds max per sample (prevents OOM)
 LR = 3e-4  # Lower LR for larger model
 CACHE_PROCESSED = True  # Enable caching by default for faster training
 NUM_CPU_THREADS = 24  # More workers for your 7950X
 CUDA_AVAILABLE = True
 USE_AMP = True  # Automatic Mixed Precision for ~50% memory reduction
-AUGMENT_COL=3
+AUGMENT_COL = 0 # Closed for now
+CHORD_PEN = 0
 
 # ==========================================
 # Model Architecture - Enhanced RhythmNet
@@ -382,7 +383,7 @@ def train(args):
     )
     
     if len(dataset) == 0:
-        print(f"No valid {args.keys}K maps found in {data_dirs}")
+        print(f"No valid {args.keys}K maps found in the provided data directories.")
         return
 
     # Create collate function with max_frames for memory control
@@ -541,7 +542,7 @@ if __name__ == "__main__":
     
     # Data arguments
     parser.add_argument("--data_dir", type=str, nargs='+', default=DATA_DIR, 
-                        help=f"Path(s) to osu! songs folder. Can specify multiple paths. (default: {DATA_DIR})")
+                        help=f"Path(s) to osu! songs folder. Can specify multiple paths. (default: DATA_DIR in code)")
     parser.add_argument("--save_dir", type=str, default=MODEL_SAVE_DIR, 
                         help=f"Directory to save model checkpoints (default: {MODEL_SAVE_DIR})")
     parser.add_argument("--keys", type=int, default=KEYS, 
@@ -564,8 +565,8 @@ if __name__ == "__main__":
                         help="Weight decay for AdamW (default: 0.01)")
     parser.add_argument("--pos_weight", type=float, default=15.0, 
                         help="Positive class weight for BCE loss (default: 15.0)")
-    parser.add_argument("--chord_penalty_weight", type=float, default=0.1, 
-                        help="Weight for chord penalty loss (default: 0.1)")
+    parser.add_argument("--chord_penalty_weight", type=float, default=CHORD_PEN, 
+                        help=f"Weight for chord penalty loss (default: {CHORD_PEN})")
     parser.add_argument("--max_chord", type=float, default=1.5, 
                         help="Max expected simultaneous notes before penalty (default: 1.5)")
     parser.add_argument("--workers", type=int, default=NUM_CPU_THREADS, 

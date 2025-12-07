@@ -92,8 +92,8 @@ class OsuManiaDataset(Dataset):
                     main_audio = max(audio_files, key=lambda f: os.path.getsize(os.path.join(root, f)))
                 except OSError:
                     continue # Skip if file access fails
-                    
-                # Iterate through .osu files and pair them with the main audio
+                        
+                    # Iterate through .osu files and pair them with the main audio
                 for file in files:
                     if file.endswith(".osu"):
                         full_path = os.path.join(root, file)
@@ -114,7 +114,7 @@ class OsuManiaDataset(Dataset):
         
         if not os.path.exists(audio_path):
             return None
-
+            
         # Use the reference parser
         try:
             beatmap = parse_beatmap(osu_path)
@@ -179,7 +179,7 @@ class OsuManiaDataset(Dataset):
         
         if self.cache_processed:
             torch.save(data, cache_path)
-        
+            
         # Apply column permutation if this is an augmented version
         if version > 0:
             data = self._apply_column_permutation(data, version)
