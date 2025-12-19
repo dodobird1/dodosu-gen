@@ -1,5 +1,6 @@
 # dodosu-gen!mania v0.0.1
 
+## NOTE: This project is DISCONTINUED by its author in favor of the development of the much more powerful **Dododual**, which features a much better designed model architecture and general results. please visit https://github.com/dodobird1/dododual
 A CNN/RNN-based generator with self-attention of osu!mania 4K beatmaps powered by **RhythmNet** created by dodobird1. 
 
 > ⚠️ **USE THIS MODEL RESPONSIBLY**  
