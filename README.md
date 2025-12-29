@@ -18,6 +18,24 @@ A CNN/RNN-based generator with self-attention of osu!mania 4K beatmaps powered b
 
 ---
 
+## Citing
+
+If you find this code useful in your research or projects, even just a quick "thank you" or a link back to this repository is very helpful for me and **greatly appreciated** (but not required under the lisence)! 
+
+**Recommended Citation:**
+```bibtex
+@misc{dodosu-gen2025,
+  author = {dodobird1},
+  title = {dodosu-gen!mania v0.0.1},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/dodobird1/dodosu-gen}}
+}
+```
+
+---
+
 ## Installation
 
 ```bash
