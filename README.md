@@ -22,7 +22,7 @@ A CNN/RNN-based generator with self-attention of osu!mania 4K beatmaps powered b
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/dodosu-gen-mania.git
+git clone https://github.com/dodobird1/dodosu-gen.git
 cd dodosu-gen-mania
 
 # It is recommended to create a new python environment, e.g. using Anaconda
@@ -36,7 +36,7 @@ pip install torch torchaudio numpy tqdm x-transformers
 
 ## Usage
 
-*Currently the installation, training, and inference processes are only tested on Ubuntu 24.04.*
+*Currently the installation and training processes are only tested on Ubuntu 24.04 for Osu!Mania 4K only. The inference is tested to work on Ubuntu and for CPU on MacOS under conda.*
 
 ### Training
 
@@ -119,4 +119,4 @@ dodosu-gen-mania/
 
 ## License
 
-See [LICENSE.md](LICENSE.md) for details.
+See [LICENSE](LICENSE) for details.
